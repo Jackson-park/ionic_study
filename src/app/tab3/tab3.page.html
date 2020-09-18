@@ -1,17 +1,95 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      recode
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-calendar [(ngModel)]="date" [options]="optionsRange" [type]="type" [format]="'YYYY-MM-DD'"
+      (click)="dateClick()">
+    </ion-calendar>
+  </ion-card>
+  <div>
+    <ion-header>
+      <ion-virtual-scroll></ion-virtual-scroll>
+      <ion-searchbar></ion-searchbar>
+    </ion-header>
+  </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div>
+    <p>{{ date }}</p>
+  </div>
+
+  <div [ngSwitch]="date">
+    <ion-item>
+      <ion-col col-6>
+        <div>년</div>
+      </ion-col>
+      <ion-col>
+        <div>월</div>
+      </ion-col>
+      <ion-col>
+        <div>일</div>
+      </ion-col>
+    </ion-item>
+    <ion-item *ngSwitchCase="1600354800000">
+      <ion-col col-6>
+        <div>2020년</div>
+      </ion-col>
+      <ion-col>
+        <div>9월</div>
+      </ion-col>
+      <ion-col>
+        <div>18일</div>
+      </ion-col>
+    </ion-item>
+    <ion-item *ngSwitchCase="1600441200000">
+      <ion-col col-6>
+        <div>2020년</div>
+      </ion-col>
+      <ion-col>
+        <div>9월</div>
+      </ion-col>
+      <ion-col>
+        <div>19일</div>
+      </ion-col>
+    </ion-item>
+    <ion-item *ngSwitchCase="1600527600000">
+      <ion-col col-6>
+        <div>2020년</div>
+      </ion-col>
+      <ion-col>
+        <div>9월</div>
+      </ion-col>
+      <ion-col>
+        <div>20일</div>
+      </ion-col>
+    </ion-item>
+    <ion-item *ngSwitchCase="1600614000000">
+      <ion-col col-6>
+        <div>2020년</div>
+      </ion-col>
+      <ion-col>
+        <div>9월</div>
+      </ion-col>
+      <ion-col>
+        <div>21일</div>
+      </ion-col>
+    </ion-item>
+    <ion-item *ngSwitchCase="1600700400000">
+      <ion-col col-6>
+        <div>2020년</div>
+      </ion-col>
+      <ion-col>
+        <div>9월</div>
+      </ion-col>
+      <ion-col>
+        <div>21일</div>
+      </ion-col>
+    </ion-item>
+
+  </div>
 </ion-content>

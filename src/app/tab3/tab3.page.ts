@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DateInput } from '@fullcalendar/core';
+import { CalendarComponentOptions } from 'ion2-calendar'
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+
+  dateRange: { from: Date; to: Date; };
+  date: number;
+  type: 'string';
+  optionsRange: CalendarComponentOptions = {
+    monthFormat: 'YYYY 년 MM 월 ',
+    color: 'secondary',
+    weekdays: ['일', '월', '화', '수', '목', '금', '토'],
+    // pickMode: 'range'
+  };
+
+  constructor() {
+
+  }
+
+  dateClick() {
+    console.log(this.date);
+    console.log(this.dateRange);
+  }
 
 }

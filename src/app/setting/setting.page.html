@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>setting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <div>
+          <ion-col size="6">앱버전</ion-col>
+          <input type="text" [(ngModel)]="ver">
+          <br />
+          <h5>{{ ver }}</h5>
+          <ion-col size="6">마케팅 알림 설정</ion-col>
+          <ion-col size="6" class="a-right">
+            <ion-checkbox [(ngModel)]="nCheck" (click)="notice()"></ion-checkbox>
+          </ion-col>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button color="primary" expand="block" (click)="logout()">로그아웃</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -1,17 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <div class="div_welcome">
+        <ion-card-subtitle>{{ welcome }}</ion-card-subtitle>
+        <h4>{{ smilepoint }} {{ smilepoint_num }} P</h4>
+        <br />
+        <ion-button color="primary" expand="block" (click)="addpoint()">포인트 적립</ion-button>
+      </div>
+    </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card-content>
+      <div class="div_info">
+        <ion-icon name="happy-outline" size="large"></ion-icon>
+        <h5>스마일 패스 안내</h5>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ul>
+    <li *ngFor="let obj of arr">
+      {{ obj.number }}
+      {{ obj.title }}
+    </li>
+  </ul>
+  <ion-input type="number" [(ngModel)]="testnumber"></ion-input>
+  <ion-button color="success" expand="block" (click)="go()">testpage로 가기</ion-button>
 </ion-content>
