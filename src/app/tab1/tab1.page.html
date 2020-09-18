@@ -1,12 +1,103 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar>
-    <ion-title>
-      Home page
-    </ion-title>
+    <ion-grid>
+      <ion-row style="position: static;">
+        <ion-col>
+          <div>
+            <ion-button>sdmall</ion-button>
+          </div>
+        </ion-col>
+        <ion-col style="text-align: right;">
+          <div>
+            <ion-button>
+              <ion-icon name="search-outline"></ion-icon>
+            </ion-button>
+            <ion-button>
+              <ion-icon name="cart-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-segment [(ngModel)]="segment">
+      <ion-col>
+        <ion-segment-button value="new">신상</ion-segment-button>
+      </ion-col>
+      <ion-col>
+        <ion-segment-button value="best">베스트</ion-segment-button>
+      </ion-col>
+      <ion-col>
+        <ion-segment-button value="swimglass">
+          수경명품관
+        </ion-segment-button>
+      </ion-col>
+      <ion-col>
+        <ion-segment-button value="outlet">아울렛</ion-segment-button>
+      </ion-col>
+      <ion-col>
+        <ion-segment-button value="event">이벤트</ion-segment-button>
+      </ion-col>
+      <ion-col>
+        <ion-segment-button value="exerciseCheck">운동인증</ion-segment-button>
+      </ion-col>
+    </ion-segment>
+  </ion-grid>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'new'">
+      <ion-item>
+        <div>
+          <p>신상입니다.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'best'">
+      <ion-item>
+        <div>
+          <p>베스트 상품입니다.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'swimglass'">
+      <ion-item>
+        <div>
+          <p>수경명품관입니다.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'outlet'">
+      <ion-item>
+        <div>
+          <p>아울렛입니다.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'event'">
+      <ion-item>
+        <div>
+          <p>이벤트입니다.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'exerciseCheck'">
+      <ion-item>
+        <div>
+          <p>운동인증입니다.</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
   <ion-card>
     <ion-card-header>
       <div class="div_welcome">

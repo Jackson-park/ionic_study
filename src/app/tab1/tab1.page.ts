@@ -13,7 +13,7 @@ export class Tab1Page {
   smilepoint_num: number = 100;
   arr: any = [];
   testnumber: number = 100;
-
+  segment: string = '';
 
   constructor(
     private router: Router
