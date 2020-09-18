@@ -14,7 +14,7 @@ export class Tab1Page {
   arr: any = [];
   testnumber: number = 100;
   segment: string = '';
-
+  logo: string = 'sdmall';
   constructor(
     private router: Router
   ) {
@@ -34,6 +34,9 @@ export class Tab1Page {
   }
   addpoint() {
     this.smilepoint_num += 10;
+  }
+  home() {
+    window.location.href = "/"
   }
 
   go() {
