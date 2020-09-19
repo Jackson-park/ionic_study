@@ -3,17 +3,16 @@
   <ion-toolbar>
     <ion-grid>
       <ion-row style="position: static;">
-        <ion-col>
+        <ion-col style="text-align: left;">
           <div>
-            <ion-button (click)="home()" style="width: auto;">
-              <div style="width: 60%;">
-                <img src="../../assets/img/sdmallLogo.png">
-              </div>
-            </ion-button>
+            <a href="/">
+              <ion-img src="../../assets/img/sdmallLogo.png"
+              style="display: block; width: 120px; height: 60px;"></ion-img>
+            </a>
           </div>
         </ion-col>
         <ion-col style="text-align: right;">
-          <div>
+          <div style="display: inline-block;">
             <ion-button>
               <ion-icon name="search-outline"></ion-icon>
             </ion-button>

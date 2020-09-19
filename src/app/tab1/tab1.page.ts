@@ -35,9 +35,6 @@ export class Tab1Page {
   addpoint() {
     this.smilepoint_num += 10;
   }
-  home() {
-    window.location.href = "/"
-  }
 
   go() {
     this.router.navigateByUrl('/test');
