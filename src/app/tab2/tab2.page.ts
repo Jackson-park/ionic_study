@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SharedService } from '../shared.service';
+import { Platform } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { getLocaleDirection } from '@angular/common';
+
+declare var google;
 
 @Component({
   selector: 'app-tab2',
@@ -15,14 +20,66 @@ export class Tab2Page {
     passwd2: "",
     name: "",
     phone: "",
-  }
+  };
 
+  map: any;
+  marker: any;
+  latitude: any = "";
+  longitude: any = "";
+  timestamp: any = "";
+  lat;
+  lng;
   constructor(
     private http: HttpClient,
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    public platform: Platform,
+    public geolocation: Geolocation
   ) {
-
+    this.platform.ready().then(() => {
+      var mapOptions = {
+        center: { lat: 23.2366, lng: 79.3822 },
+        zoom: 7
+      }
+      this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      this.GetLocation();
+    })
   }
+
+  whereIam() {
+    this.geolocation.getCurrentPosition({
+      timeout: 10000,
+      enableHighAccuracy: true
+    }).then((res) => {
+      this.lat = res.coords.latitude;
+      this.lng = res.coords.longitude;
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
+
+  GetLocation() {
+    var ref = this;
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((position) => {
+      var gps = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      if (ref.marker == null) {
+        ref.marker = new google.maps.Marker({
+          position: gps,
+          map: ref.map,
+          title: 'my position'
+        })
+      }
+      else {
+        ref.marker.setPosition(gps);
+      }
+      ref.map.panTo(gps);
+      ref.latitude = position.coords.latitude.toString();
+      ref.longitude = position.coords.longitude.toString();
+      ref.timestamp = (new Date(position.timestamp)).toString();
+    })
+  }
+
+
 
   joinNow() {
     if (this.userInfo.id == '') {

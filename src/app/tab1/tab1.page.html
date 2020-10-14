@@ -1,12 +1,12 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
 
   <ion-toolbar>
     <ion-grid>
-      <ion-row style="position: static;">
+      <ion-row style="position: relative;">
         <ion-col style="text-align: left;">
           <div>
             <a href="/">
-              <ion-img src="../../assets/img/sdmallLogo.png" style="display: block; width: 120px; height: 60px;">
+              <ion-img src="../../assets/img/smilewalk.png" style="display: block; width: 150px; height: 60px;">
               </ion-img>
             </a>
           </div>
@@ -14,7 +14,7 @@
         <ion-col style="text-align: right;">
           <div style="display: inline-block;">
             <ion-button>
-              <ion-icon name="search-outline"></ion-icon>
+              <ion-icon name="calendar-outline"></ion-icon>
             </ion-button>
             <ion-button>
               <ion-icon name="cart-outline"></ion-icon>
@@ -24,107 +24,138 @@
       </ion-row>
     </ion-grid>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-segment [(ngModel)]="segment">
-      <ion-col>
-        <ion-segment-button value="new">신상</ion-segment-button>
-      </ion-col>
-      <ion-col>
-        <ion-segment-button value="best">베스트</ion-segment-button>
-      </ion-col>
-      <ion-col>
-        <ion-segment-button value="swimglass">
-          수경명품관
-        </ion-segment-button>
-      </ion-col>
-      <ion-col>
-        <ion-segment-button value="outlet">아울렛</ion-segment-button>
-      </ion-col>
-      <ion-col>
-        <ion-segment-button value="event">이벤트</ion-segment-button>
-      </ion-col>
-      <ion-col>
-        <ion-segment-button value="exerciseCheck">운동인증</ion-segment-button>
-      </ion-col>
-    </ion-segment>
-  </ion-grid>
-
-  <div [ngSwitch]="segment">
-    <ion-list *ngSwitchCase="'new'">
-      <ion-item>
-        <div>
-          <p>신상입니다.</p>
-        </div>
-      </ion-item>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'best'">
-      <ion-item>
-        <div>
-          <p>베스트 상품입니다.</p>
-        </div>
-      </ion-item>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'swimglass'">
-      <ion-item>
-        <div>
-          <p>수경명품관입니다.</p>
-        </div>
-      </ion-item>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'outlet'">
-      <ion-item>
-        <div>
-          <p>아울렛입니다.</p>
-        </div>
-      </ion-item>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'event'">
-      <ion-item>
-        <div>
-          <p>이벤트입니다.</p>
-        </div>
-      </ion-item>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'exerciseCheck'">
-      <ion-item>
-        <div>
-          <p>운동인증입니다.</p>
-        </div>
-      </ion-item>
-    </ion-list>
+  <div class="homebackground">
+    <div>
+    <ion-grid>
+      <ion-row style="position: relative;">
+        <ion-col style="text-align: right;">
+          <ion-col>
+            <ion-icon name="calendar-outline" size="large"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="ellipsis-vertical-outline" size="large"></ion-icon>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-  <ion-card>
-    <ion-card-header>
-      <div class="div_welcome">
-        <ion-card-subtitle>{{ welcome }}</ion-card-subtitle>
-        <h4>{{ smilepoint }} {{ smilepoint_num }} P</h4>
-        <br />
-        <ion-button color="primary" expand="block" (click)="addpoint()">포인트 적립</ion-button>
+  
+    <div style="text-align: center;">
+      <p>Smile Walk</p>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>칼로리</ion-col>
+            <ion-col col-4>활동시간</ion-col>
+            <ion-col col-4>거리(M)</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4>412</ion-col>
+            <ion-col col-4>1h 56m</ion-col>
+            <ion-col col-4>{{distance}}m</ion-col>
+          </ion-row>
+        </ion-grid>
+    </div>
+    <div style="text-align: center;">
+      <p>오늘의 걸음</p>
+      <b style="font-size: 50px;">{{todayStep}}</b>
+        <ion-range min="0" max="1000" color="secondary" [(ngModel)]="todayStep" color="warning">
+        </ion-range>
+      <p>목표: 1000</p>
+      <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 1000? '오늘 걸음 끝' :'걸음추가'}}</ion-button>
+      <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 1000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
       </div>
-    </ion-card-header>
+    
 
-    <ion-card-content>
-      <div class="div_info">
-        <ion-icon name="happy-outline" size="large"></ion-icon>
-        <h5>스마일 패스 안내</h5>
-      </div>
-    </ion-card-content>
-  </ion-card>
+    
+  </div>
 
-  <ul>
+  <!-- <ul>
     <li *ngFor="let obj of arr">
       {{ obj.number }}
       {{ obj.title }}
     </li>
-  </ul>
-  <ion-input type="number" [(ngModel)]="testnumber"></ion-input>
-  <ion-button color="success" expand="block" (click)="go()">testpage로 가기</ion-button>
+  </ul> -->
+  <!-- <ion-button color="success" expand="block" (click)="go()">testpage로 가기</ion-button>
+  <button ion-button full icon-left (click)="startTracking()" *ngIf="!isTracking">
+    <ion-icon name="locate"></ion-icon>
+    Start Tracking
+  </button>
+  <button ion-button full icon-left (click)="stopTracking()" *ngIf="isTracking">
+    <ion-icon name="hand"></ion-icon>
+    Stop Tracking
+  </button>
+
+  <div #map></div>
+
+  <ion-list>
+    <ion-list-header>Previous Tracks</ion-list-header>
+    <ion-item *ngFor="let route of previousTracks">
+      {{ route.finished | date }}, {{ route.path.length }} Waypoints
+      <Button ion-button clear item-end (click)="showHistoryRoute(route.path)">View</Button>
+    </ion-item>
+  </ion-list> -->
+
+  <div>
+    <ion-grid>
+      <ion-segment [(ngModel)]="segment">
+        <ion-col>
+          <ion-segment-button value="numberSteps">걸음 수</ion-segment-button>
+        </ion-col>
+        <ion-col>
+          <ion-segment-button value="weight">체중</ion-segment-button>
+        </ion-col>
+        <ion-col>
+          <ion-segment-button value="heartRate">심박수</ion-segment-button>
+        </ion-col>
+        <ion-col>
+          <ion-segment-button value="another">기타</ion-segment-button>
+        </ion-col>
+      </ion-segment>
+    </ion-grid>
+  </div>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'numberSteps'">
+      <ion-item>
+        <div>
+          <p>평균</p>
+          <p>총</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'weight'">
+      <ion-item>
+        <div>
+          <p>최신: 65.0kg</p>
+          <p>변경: 0.0kg</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'heartRate'">
+      <ion-item>
+        <div>
+          <p>고혈압</p>
+          <p>저혈압</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'another'">
+      <ion-item>
+        <div>
+          <p>기타</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div style="margin: 5%;">
+    <p>Lat: {{lat}}</p>
+    <p>Lng: {{lng}}</p>
+    <ion-button expand="block" (click)="whereIam()">내 위치 찾기</ion-button>
+  </div>
 </ion-content>
