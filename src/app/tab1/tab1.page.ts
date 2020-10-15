@@ -52,7 +52,6 @@ export class Tab1Page {
 
   pointAdd() {
     this.state = true;
-    alert('500포인트 적립되었습니다.');
   }
   whereIam() {
     this.geolocation.getCurrentPosition({

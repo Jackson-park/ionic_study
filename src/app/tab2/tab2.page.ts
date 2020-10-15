@@ -41,7 +41,7 @@ export class Tab2Page {
         zoom: 7
       }
       this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-      this.GetLocation();
+      // this.GetLocation();
     })
   }
 
@@ -57,27 +57,27 @@ export class Tab2Page {
     });
   }
 
-  GetLocation() {
-    var ref = this;
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe((position) => {
-      var gps = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      if (ref.marker == null) {
-        ref.marker = new google.maps.Marker({
-          position: gps,
-          map: ref.map,
-          title: 'my position'
-        })
-      }
-      else {
-        ref.marker.setPosition(gps);
-      }
-      ref.map.panTo(gps);
-      ref.latitude = position.coords.latitude.toString();
-      ref.longitude = position.coords.longitude.toString();
-      ref.timestamp = (new Date(position.timestamp)).toString();
-    })
-  }
+  // GetLocation() {
+  //   var ref = this;
+  //   let watch = this.geolocation.watchPosition();
+  //   watch.subscribe((position) => {
+  //     var gps = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  //     if (ref.marker == null) {
+  //       ref.marker = new google.maps.Marker({
+  //         position: gps,
+  //         map: ref.map,
+  //         title: 'my position'
+  //       })
+  //     }
+  //     else {
+  //       ref.marker.setPosition(gps);
+  //     }
+  //     ref.map.panTo(gps);
+  //     ref.latitude = position.coords.latitude.toString();
+  //     ref.longitude = position.coords.longitude.toString();
+  //     ref.timestamp = (new Date(position.timestamp)).toString();
+  //   })
+  // }
 
 
 
