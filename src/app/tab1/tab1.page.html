@@ -61,12 +61,12 @@
     <div style="text-align: center;">
       <p>오늘의 걸음</p>
       <b style="font-size: 50px;">{{todayStep}}</b>
-        <ion-range min="0" max="1000" color="secondary" [(ngModel)]="todayStep" color="warning">
+        <ion-range min="0" max="10000" color="secondary" [(ngModel)]="todayStep" color="warning">
         </ion-range>
-        <circle-progress [percent]="todayStep/10"></circle-progress>
-      <p>목표: 1000</p>
-      <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 1000? '오늘 걸음 끝' :'걸음추가'}}</ion-button>
-      <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 1000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
+        <circle-progress [percent]="todayStep / 100"></circle-progress>
+      <p>목표: 10000</p>
+      <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 10000? '오늘 걸음 끝' :'걸음추가'}}</ion-button>
+      <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 10000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
       </div>
     
 

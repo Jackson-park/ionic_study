@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavParams } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { flatten } from '@angular/compiler';
       radius: 100,
       space: -10,
       toFixed: 0,
-      maxPercent: 1000,
+      maxPercent: 10000,
       // unitsFontWeight: "500",
       outerStrokeGradient: true,
       outerStrokeWidth: 10,
@@ -27,10 +27,11 @@ import { flatten } from '@angular/compiler';
       outerStrokeGradientStopColor: "#e62bad",
       innerStrokeColor: "#e7e8ea",
       innerStrokeWidth: 10,
+      // title: "jackson",
       titleFontSize: "50",
       titleFontWeight: "1000",
       subtitleFontSize: "15",
-      subtitle: "목표: 1000",
+      subtitle: "목표: 10000",
       animateTitle: true,
       animationDuration: 500,
       animation: true,
