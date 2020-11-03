@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { SharedService } from './shared.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { Gyroscope } from '@ionic-native/gyroscope/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +22,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     SharedService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Geolocation
+    Geolocation,
+    Gyroscope
   ],
   bootstrap: [AppComponent]
 })

@@ -24,7 +24,7 @@ import { flatten } from '@angular/compiler';
       outerStrokeGradient: true,
       outerStrokeWidth: 10,
       outerStrokeColor: "#1b5ce9d7",
-      outerStrokeGradientStopColor: "#e62bad",
+      outerStrokeGradientStopColor: "#e29f48",
       innerStrokeColor: "#e7e8ea",
       innerStrokeWidth: 10,
       // title: "jackson",
@@ -40,6 +40,7 @@ import { flatten } from '@angular/compiler';
       startFromZero: false
     })
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page],
+
 })
 export class Tab1PageModule { }

@@ -67,10 +67,8 @@
       <p>목표: 10000</p>
       <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 10000? '오늘 걸음 끝' :'걸음추가'}}</ion-button>
       <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 10000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
+      <ion-button expand="block" color="secondary" (click)="Gyroscope()">자이로센서콘솔</ion-button>
       </div>
-    
-
-    
   </div>
 
   <!-- <ul>
