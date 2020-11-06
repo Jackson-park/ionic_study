@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope/ngx';
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -20,10 +21,15 @@ export class Tab1Page {
   yOrient: number;
   zOrient: number;
   timestamp: number;
+  motionX: number;
+  motionY: number;
+  motionZ: number;
+  motionTimestamp: number;
   constructor(
     private router: Router,
     public geolocation: Geolocation,
-    private gyroscope: Gyroscope
+    private gyroscope: Gyroscope,
+    private deviceMotion: DeviceMotion
   ) {
 
 
@@ -42,6 +48,26 @@ export class Tab1Page {
 
   ngOnInit() {
 
+  }
+
+  Motion() {
+    //기기 가속 가져오기
+    this.deviceMotion.getCurrentAcceleration().then(
+      (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
+      (error: any) => console.log(error)
+      );
+    
+    // 기기 가속 보기
+    var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
+      this.motionX = acceleration.x;
+      this.motionY = acceleration.y;
+      this.motionZ = acceleration.z;
+      this.motionTimestamp = acceleration.timestamp;
+      console.log(acceleration);
+    });
+    
+    // Stop watch
+    // subscription.unsubscribe();
   }
 
   Gyroscope() {
@@ -63,6 +89,10 @@ export class Tab1Page {
     this.gyroscope.watch()
       .subscribe((orientation: GyroscopeOrientation) => {
         console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+        this.xOrient = orientation.x;
+        this.yOrient = orientation.y;
+        this.zOrient = orientation.z;
+        this.timestamp = orientation.timestamp;
       });
   }
   go() {
@@ -70,7 +100,7 @@ export class Tab1Page {
   }
 
   stepAdd() {
-    if (this.todayStep < 1000) {
+    if (this.todayStep < 10000) {
       this.todayStep += 1;
       this.distance = this.todayStep * 0.5;
     }

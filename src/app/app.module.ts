@@ -12,7 +12,7 @@ import { SharedService } from './shared.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { Gyroscope } from '@ionic-native/gyroscope/ngx';
-
+import { DeviceMotion } from '@ionic-native/device-motion/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -23,7 +23,8 @@ import { Gyroscope } from '@ionic-native/gyroscope/ngx';
     SharedService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
-    Gyroscope
+    Gyroscope,
+    DeviceMotion,
   ],
   bootstrap: [AppComponent]
 })

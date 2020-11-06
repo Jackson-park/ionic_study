@@ -69,6 +69,59 @@
       <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 10000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
       <ion-button expand="block" color="secondary" (click)="Gyroscope()">자이로센서콘솔</ion-button>
       </div>
+      <div>
+        <ion-item>
+          <ion-list>
+            <span>X축: </span>
+            {{xOrient}}
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <span>Y축: </span>
+            {{yOrient}}
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <span>Z축: </span>
+            {{zOrient}}
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <span>timestamp: </span>
+            {{timestamp}}
+          </ion-list>
+        </ion-item>
+      </div>
+      <div>
+        <ion-button expand="block" color="secondary" (click)="Motion()">모션</ion-button>
+        <ion-item>
+          <ion-list>
+            <span>X축: </span>
+            {{motionX}}
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <span>Y축: </span>
+            {{motionY}}
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <span>Z축: </span>
+            {{motionZ}}
+          </ion-list>
+        </ion-item>
+        <ion-item>
+          <ion-list>
+            <span>timestamp: </span>
+            {{motionTimestamp}}
+          </ion-list>
+        </ion-item>
+      </div>
   </div>
 
   <!-- <ul>
