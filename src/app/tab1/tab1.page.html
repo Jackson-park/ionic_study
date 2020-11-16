@@ -47,14 +47,15 @@
       <p>Smile Walk</p>
         <ion-grid>
           <ion-row>
-            <ion-col col-4>칼로리</ion-col>
+            <ion-col col-4>Kcal</ion-col>
             <ion-col col-4>활동시간</ion-col>
-            <ion-col col-4>거리(M)</ion-col>
+            <ion-col col-4>거리</ion-col>
           </ion-row>
           <ion-row>
-            <ion-col col-4>412</ion-col>
+            <ion-col col-4>{{(todayStep * 0.025).toFixed(1)}}Kcal</ion-col>
             <ion-col col-4>1h 56m</ion-col>
-            <ion-col col-4>{{distance}}m</ion-col>
+            <ion-col col-4 *ngIf="(todayStep * 0.7) < 1000">{{(todayStep * 0.7).toFixed(0)}}m</ion-col>
+            <ion-col col-4 *ngIf="(todayStep * 0.7) >= 1000">{{((todayStep * 0.7) / 1000).toFixed(1)}}km</ion-col>
           </ion-row>
         </ion-grid>
     </div>

@@ -49,7 +49,7 @@ export class Tab1Page {
   // }
 
   ngOnInit() {
-
+    
   }
 
   Motion() {
@@ -104,7 +104,7 @@ export class Tab1Page {
   stepAdd() {
     if (this.todayStep < 10000) {
       this.todayStep += 1;
-      this.distance = this.todayStep * 0.5;
+      // this.distance = this.todayStep * 0.7;
     }
   }
 
