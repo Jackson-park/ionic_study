@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope/ngx';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
+import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -29,7 +30,8 @@ export class Tab1Page {
     private router: Router,
     public geolocation: Geolocation,
     private gyroscope: Gyroscope,
-    private deviceMotion: DeviceMotion
+    private deviceMotion: DeviceMotion,
+    public sharedService: SharedService
   ) {
 
 
@@ -108,6 +110,7 @@ export class Tab1Page {
 
   pointAdd() {
     this.state = true;
+    this.sharedService.presentAlert("알림", "적립되었습니다.");
   }
   whereIam() {
     this.geolocation.getCurrentPosition({

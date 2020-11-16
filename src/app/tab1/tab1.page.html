@@ -58,71 +58,25 @@
           </ion-row>
         </ion-grid>
     </div>
-    <div style="text-align: center;">
+    <div class="homeRoot">
       <p>오늘의 걸음</p>
       <b style="font-size: 50px;">{{todayStep}}</b>
         <ion-range min="0" max="10000" color="secondary" [(ngModel)]="todayStep" color="warning">
         </ion-range>
-        <circle-progress [percent]="todayStep / 100"></circle-progress>
+        <circle-progress
+        [percent]="todayStep / 100"
+        title="{{todayStep | number}}"
+        subtitle="걸음"
+        titleColor="white"
+        subtitleColor="white"></circle-progress>
       <p>목표: 10000</p>
       <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 10000? '오늘 걸음 끝' :'걸음추가'}}</ion-button>
       <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 10000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
-      <ion-button expand="block" color="secondary" (click)="Gyroscope()">자이로센서콘솔</ion-button>
-      </div>
-      <div>
-        <ion-item>
-          <ion-list>
-            <span>X축: </span>
-            {{xOrient}}
-          </ion-list>
-        </ion-item>
-        <ion-item>
-          <ion-list>
-            <span>Y축: </span>
-            {{yOrient}}
-          </ion-list>
-        </ion-item>
-        <ion-item>
-          <ion-list>
-            <span>Z축: </span>
-            {{zOrient}}
-          </ion-list>
-        </ion-item>
-        <ion-item>
-          <ion-list>
-            <span>timestamp: </span>
-            {{timestamp}}
-          </ion-list>
-        </ion-item>
-      </div>
-      <div>
-        <ion-button expand="block" color="secondary" (click)="Motion()">모션</ion-button>
-        <ion-item>
-          <ion-list>
-            <span>X축: </span>
-            {{motionX}}
-          </ion-list>
-        </ion-item>
-        <ion-item>
-          <ion-list>
-            <span>Y축: </span>
-            {{motionY}}
-          </ion-list>
-        </ion-item>
-        <ion-item>
-          <ion-list>
-            <span>Z축: </span>
-            {{motionZ}}
-          </ion-list>
-        </ion-item>
-        <ion-item>
-          <ion-list>
-            <span>timestamp: </span>
-            {{motionTimestamp}}
-          </ion-list>
-        </ion-item>
+      
       </div>
   </div>
+
+  
 
   <!-- <ul>
     <li *ngFor="let obj of arr">
@@ -149,7 +103,60 @@
       <Button ion-button clear item-end (click)="showHistoryRoute(route.path)">View</Button>
     </ion-item>
   </ion-list> -->
-
+  <div>
+    <ion-button expand="block" color="secondary" (click)="Gyroscope()">자이로센서콘솔</ion-button>
+    <ion-item>
+      <ion-list>
+        <span>X축: </span>
+        {{xOrient}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>Y축: </span>
+        {{yOrient}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>Z축: </span>
+        {{zOrient}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>timestamp: </span>
+        {{timestamp}}
+      </ion-list>
+    </ion-item>
+  </div>
+  <div>
+    <ion-button expand="block" color="secondary" (click)="Motion()">모션</ion-button>
+    <ion-item>
+      <ion-list>
+        <span>X축: </span>
+        {{motionX}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>Y축: </span>
+        {{motionY}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>Z축: </span>
+        {{motionZ}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>timestamp: </span>
+        {{motionTimestamp}}
+      </ion-list>
+    </ion-item>
+  </div>
   <div>
     <ion-grid>
       <ion-segment [(ngModel)]="segment">
