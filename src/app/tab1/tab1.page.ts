@@ -4,6 +4,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope/ngx';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 import { SharedService } from '../shared.service';
+import { Geofence } from '@ionic-native/geofence/ngx';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -31,10 +32,16 @@ export class Tab1Page {
     public geolocation: Geolocation,
     private gyroscope: Gyroscope,
     private deviceMotion: DeviceMotion,
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    private geofence: Geofence
   ) {
 
-
+    geofence.initialize().then(
+      // resolved promise does not return a value
+      () => console.log('Geofence Plugin Ready'),
+      (err) => console.log(err)
+    )
+    geofence.getWatched()
     // this.loadList();
   }
 
@@ -49,7 +56,32 @@ export class Tab1Page {
   // }
 
   ngOnInit() {
-    
+    this.addGeofence();
+  }
+
+  private addGeofence() {
+    //options describing geofence
+    let fence = {
+      id: '69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb', //any unique ID
+      latitude:       37.40173815275911, //center of geofence radius
+      longitude:      126.96884846800872,
+      radius:         1, //radius to edge of geofence in meters
+      transitionType: 3, //see 'Transition Types' below
+      notification: { //notification settings
+          id:             1, //any unique ID
+          title:          '박재성 사원 자리 도착', //notification title
+          text:           '박재성 사원 자리에 도착했습니다.', //notification body
+          openAppOnClick: true //open app when notification is tapped
+      }
+    }
+  
+    this.geofence.addOrUpdate(fence).then(
+       () => {
+         console.log('Geofence added');
+        //  this.sharedService.presentAlert('도착', '박재성 사원 자리입니다.');
+        },
+       (err) => console.log('Geofence failed to add')
+     );
   }
 
   Motion() {

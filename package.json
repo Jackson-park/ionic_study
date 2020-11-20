@@ -26,6 +26,7 @@
     "@fullcalendar/timegrid": "^5.3.1",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/device-motion": "^5.29.0",
+    "@ionic-native/geofence": "^5.29.0",
     "@ionic-native/geolocation": "^5.28.0",
     "@ionic-native/gyroscope": "^5.29.0",
     "@ionic-native/splash-screen": "^5.0.0",
