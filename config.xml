@@ -98,4 +98,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <config-file parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist">
+        <string>jackson 사용 중 거리 측정을 허용합니다.</string>
+    </config-file>
+    <config-file parent="NSMotionUsageDescription" platform="ios" target="*-Info.plist">
+        <string>jackson 사용 중 모션 측정을 허용합니다</string>
+    </config-file>
 </widget>
