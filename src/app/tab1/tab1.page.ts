@@ -65,8 +65,8 @@ export class Tab1Page {
       id: '69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb', //any unique ID
       latitude:       37.40173815275911, //center of geofence radius
       longitude:      126.96884846800872,
-      radius:         1, //radius to edge of geofence in meters
-      transitionType: 3, //see 'Transition Types' below
+      radius:         2, //radius to edge of geofence in meters
+      transitionType: 1, //see 'Transition Types' below
       notification: { //notification settings
           id:             1, //any unique ID
           title:          '박재성 사원 자리 도착', //notification title
@@ -78,9 +78,12 @@ export class Tab1Page {
     this.geofence.addOrUpdate(fence).then(
        () => {
          console.log('Geofence added');
-        //  this.sharedService.presentAlert('도착', '박재성 사원 자리입니다.');
+         this.sharedService.presentAlert('알림', '센터가 설정되었습니다.');
         },
-       (err) => console.log('Geofence failed to add')
+       (err) => {
+        console.log('Geofence failed to add');
+        this.sharedService.presentAlert('알림', '센터가 설정되지 않았습니다.');
+       }
      );
   }
 
