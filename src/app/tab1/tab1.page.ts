@@ -56,7 +56,7 @@ export class Tab1Page {
   // }
 
   ngOnInit() {
-    this.addGeofence();
+    // this.addGeofence();
   }
 
   private addGeofence() {

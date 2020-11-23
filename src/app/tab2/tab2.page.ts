@@ -4,7 +4,9 @@ import { SharedService } from '../shared.service';
 import { Platform } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { getLocaleDirection } from '@angular/common';
-
+import { Student } from '../models/student';
+import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 declare var google;
 
 @Component({
@@ -29,11 +31,15 @@ export class Tab2Page {
   timestamp: any = "";
   lat;
   lng;
+  data: Student;
+  studentsData: any;
   constructor(
     private http: HttpClient,
     public sharedService: SharedService,
     public platform: Platform,
-    public geolocation: Geolocation
+    public geolocation: Geolocation,
+    public apiService: ApiService,
+    public router: Router
   ) {
     this.platform.ready().then(() => {
       var mapOptions = {
@@ -43,6 +49,36 @@ export class Tab2Page {
       this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
       // this.GetLocation();
     })
+    this.data = new Student();
+    this.studentsData = [];
+  }
+  submitForm() {
+    this.apiService.createItem(this.data).subscribe((response) => {
+      this.router.navigate(['/tabs/tab1']);
+    });
+
+  }
+
+  ionViewWillEnter() {
+    // Used ionViewWillEnter as ngOnInit is not 
+    // called due to view persistence in Ionic
+    this.getAllStudents();
+  }
+
+  getAllStudents() {
+    //Get saved list of students
+    this.apiService.getList().subscribe(response => {
+      console.log(response);
+      this.studentsData = response;
+    })
+  }
+
+  delete(item) {
+    //Delete item in Student data
+    this.apiService.deleteItem(item.id).subscribe(Response => {
+      //Update list after delete is successful
+      this.getAllStudents();
+    });
   }
 
   whereIam() {

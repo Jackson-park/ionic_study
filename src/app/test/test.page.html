@@ -3,12 +3,28 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Test Page</ion-title>
+    <ion-title style="text-align: center;">정보 수정</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div>
+  <!-- <div>
     <ion-button color="primary" expand="block" (click)="back()">뒤로 가기</ion-button>
-  </div>
+  </div> -->
+  <ion-list>
+  <ion-item>
+    <ion-label>이름</ion-label>
+    <ion-input [(ngModel)]="data.name" placeholder="이름을 수정하세요."></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>나이</ion-label>
+    <ion-input [(ngModel)]="data.age" placeholder="나이를 수정하세요" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>비밀번호 수정</ion-label>
+    <ion-input [(ngModel)]="data.user_password" placeholder="비밀번호를 수정하세요." type="password"></ion-input>
+  </ion-item>
+</ion-list>
+  <ion-button (click)="update()" color="success" style="width: 100%;">수정</ion-button>
+  <ion-button [routerLink]="[ '/tabs/tab2']" color="danger" style="width: 100%;">취소</ion-button>
 </ion-content>
