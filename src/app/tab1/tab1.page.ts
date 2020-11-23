@@ -89,19 +89,24 @@ export class Tab1Page {
 
   Motion() {
     //기기 가속 가져오기
-    // this.deviceMotion.getCurrentAcceleration().then(
-    //   (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
-    //   (error: any) => console.log("모션에러")
-    //   );
+    this.deviceMotion.getCurrentAcceleration().then(
+      (acceleration: DeviceMotionAccelerationData) => {
+        this.motionX = acceleration.x;
+        this.motionY = acceleration.y;
+        this.motionZ = acceleration.z;
+        this.motionTimestamp = acceleration.timestamp;
+        console.log(acceleration);
+        (error: any) => console.log("모션에러");
+      });
     
     // 기기 가속 보기
-    var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
-      this.motionX = acceleration.x;
-      this.motionY = acceleration.y;
-      this.motionZ = acceleration.z;
-      this.motionTimestamp = acceleration.timestamp;
-      console.log(acceleration);
-    });
+    // var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
+    //   this.motionX = acceleration.x;
+    //   this.motionY = acceleration.y;
+    //   this.motionZ = acceleration.z;
+    //   this.motionTimestamp = acceleration.timestamp;
+    //   console.log(acceleration);
+    // });
     
     // Stop watch
     // subscription.unsubscribe();
