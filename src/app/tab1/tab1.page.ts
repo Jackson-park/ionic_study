@@ -62,7 +62,7 @@ export class Tab1Page {
   private addGeofence() {
     //options describing geofence
     let fence = {
-      id: '69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb', //any unique ID
+      id: '69ca1asdfb88-6fbe-4e80-a4d4-ff4d3748acdb', //any unique ID
       latitude:       37.40173815275911, //center of geofence radius
       longitude:      126.96884846800872,
       radius:         2, //radius to edge of geofence in meters
@@ -89,10 +89,10 @@ export class Tab1Page {
 
   Motion() {
     //기기 가속 가져오기
-    this.deviceMotion.getCurrentAcceleration().then(
-      (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
-      (error: any) => console.log(error)
-      );
+    // this.deviceMotion.getCurrentAcceleration().then(
+    //   (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
+    //   (error: any) => console.log("모션에러")
+    //   );
     
     // 기기 가속 보기
     var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
@@ -114,11 +114,11 @@ export class Tab1Page {
 
     this.gyroscope.getCurrent(options)
       .then((orientation: GyroscopeOrientation) => {
-        console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
-        this.xOrient = orientation.x;
-        this.yOrient = orientation.y;
-        this.zOrient = orientation.z;
-        this.timestamp = orientation.timestamp;
+        console.log(orientation);
+        // this.xOrient = orientation.x;
+        // this.yOrient = orientation.y;
+        // this.zOrient = orientation.z;
+        // this.timestamp = orientation.timestamp;
       })
       .catch()
 
