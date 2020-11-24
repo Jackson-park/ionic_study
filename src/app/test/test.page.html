@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start" style="position: absolute;">
+      <ion-back-button defaultHref="/test2"></ion-back-button>
     </ion-buttons>
     <ion-title style="text-align: center;">정보 수정</ion-title>
   </ion-toolbar>
@@ -26,5 +26,5 @@
   </ion-item>
 </ion-list>
   <ion-button (click)="update()" color="success" style="width: 100%;">수정</ion-button>
-  <ion-button [routerLink]="[ '/tabs/tab2']" color="danger" style="width: 100%;">취소</ion-button>
+  <ion-button [routerLink]="[ '/test2']" color="danger" style="width: 100%;">취소</ion-button>
 </ion-content>

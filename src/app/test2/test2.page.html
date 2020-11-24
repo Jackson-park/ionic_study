@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start" style="position: absolute;">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">회원 리스트</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="text-align: center;">
+  <div>
+    <ion-grid>
+      <ion-row style="text-align: center;">
+        <ion-col>아이디</ion-col>
+        <ion-col>이름</ion-col>
+        <ion-col>나이</ion-col>
+        <ion-col>휴대폰번호</ion-col>
+        <ion-col>수정/삭제</ion-col>
+      </ion-row>
+      <div style="border-bottom: 1px solid; margin-bottom: 10px;"></div>
+      <ion-row *ngFor="let item of studentsData" style="text-align: center;">
+        <ion-col>{{ item.user_id }}</ion-col>
+        <ion-col>{{ item.name }}</ion-col>
+        <ion-col>{{ item.age }}</ion-col>
+        <ion-col>{{ item.phone }}</ion-col>
+        <ion-col style="display: flex;">
+          <ion-button color="success" size="small" routerLink='/test/{{item.id}}'>
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" size="small" (click)="delete(item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-button [routerLink]="['/tabs/tab2']" style="width: 100%;">
+    회원가입
+  </ion-button>
+</ion-content>

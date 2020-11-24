@@ -102,6 +102,9 @@
         <string>jackson 사용 중 거리 측정을 허용합니다.</string>
     </config-file>
     <config-file parent="NSMotionUsageDescription" platform="ios" target="*-Info.plist">
-        <string>jackson 사용 중 모션 측정을 허용합니다</string>
+        <string>jackson 사용 중 모션 측정을 허용합니다.</string>
+    </config-file>
+    <config-file parent="NSHealthShareUsageDescription" platform="ios" target="*-Info.plist">
+        <string>jackson 사용 중 건강 데이터를 읽어 값을 측정합니다.</string>
     </config-file>
 </widget>

@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Gyroscope } from '@ionic-native/gyroscope/ngx';
 import { DeviceMotion } from '@ionic-native/device-motion/ngx';
 import { Geofence } from '@ionic-native/geofence/ngx';
+import { Pedometer } from '@ionic-native/pedometer/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +26,8 @@ import { Geofence } from '@ionic-native/geofence/ngx';
     Geolocation,
     Gyroscope,
     DeviceMotion,
-    Geofence
+    Geofence,
+    Pedometer
   ],
   bootstrap: [AppComponent]
 })

@@ -37,6 +37,6 @@ export class TestPage implements OnInit {
     })
   }
   back() {
-    window.history.back()
+    window.history.back();
   }
 }

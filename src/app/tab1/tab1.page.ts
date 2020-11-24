@@ -5,6 +5,7 @@ import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 import { SharedService } from '../shared.service';
 import { Geofence } from '@ionic-native/geofence/ngx';
+// import { Pedometer } from '@ionic-native/pedometer/ngx';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -34,6 +35,7 @@ export class Tab1Page {
     private deviceMotion: DeviceMotion,
     public sharedService: SharedService,
     private geofence: Geofence
+    // public Pedometer: Pedometer
   ) {
 
     geofence.initialize().then(
@@ -57,7 +59,14 @@ export class Tab1Page {
 
   ngOnInit() {
     // this.addGeofence();
+
+    
   }
+
+  // startPedo() {
+  //   this.Pedometer.isStepCountingAvailable()
+  //   .then((ava))
+  // }
 
   private addGeofence() {
     //options describing geofence

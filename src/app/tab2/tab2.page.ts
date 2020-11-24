@@ -54,9 +54,11 @@ export class Tab2Page {
   }
   submitForm() {
     this.apiService.createItem(this.data).subscribe((response) => {
-      this.router.navigate(['/tabs/tab1']);
     });
-
+    this.sharedService.presentAlert("등록", "회원이 등록되었습니다.");
+  }
+  gomemberList() {
+    this.router.navigate(['/test2']);
   }
 
   ionViewWillEnter() {

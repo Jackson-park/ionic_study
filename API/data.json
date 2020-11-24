@@ -17,20 +17,44 @@
       "id": 3
     },
     {
-      "user_id": "swimdoctor",
-      "user_password": "swimdoctor",
-      "name": "스윔닥터",
-      "age": 19,
-      "phone": 1000000000,
+      "user_id": "black",
+      "user_password": "0000",
+      "name": "박재성",
+      "age": 25,
+      "phone": 1086970513,
       "id": 4
     },
     {
-      "user_id": "jack",
+      "user_id": "black",
       "user_password": "0000",
       "name": "박재성",
-      "age": 5,
+      "age": 25,
       "phone": 1086970513,
       "id": 5
+    },
+    {
+      "user_id": "black",
+      "user_password": "0000",
+      "name": "박재성",
+      "age": 24,
+      "phone": 1086970513,
+      "id": 6
+    },
+    {
+      "user_id": "black",
+      "user_password": "0000",
+      "name": "박재성",
+      "age": 23,
+      "phone": 1086970513,
+      "id": 7
+    },
+    {
+      "user_id": "black",
+      "user_password": "0000",
+      "name": "박재성",
+      "age": 23,
+      "phone": 1086970513,
+      "id": 8
     }
   ]
 }
