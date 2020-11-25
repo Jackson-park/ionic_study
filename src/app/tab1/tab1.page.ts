@@ -6,7 +6,6 @@ import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device
 import { SharedService } from '../shared.service';
 import { Geofence } from '@ionic-native/geofence/ngx';
 import { Pedometer } from '@ionic-native/pedometer/ngx';
-import { error } from 'console';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
