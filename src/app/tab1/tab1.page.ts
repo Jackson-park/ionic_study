@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope/ngx';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 import { SharedService } from '../shared.service';
 import { Geofence } from '@ionic-native/geofence/ngx';
-// import { Pedometer } from '@ionic-native/pedometer/ngx';
+import { Pedometer } from '@ionic-native/pedometer/ngx';
+import { error } from 'console';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -28,14 +29,15 @@ export class Tab1Page {
   motionY: number;
   motionZ: number;
   motionTimestamp: number;
+  pedoStep: number;
   constructor(
     private router: Router,
     public geolocation: Geolocation,
     private gyroscope: Gyroscope,
     private deviceMotion: DeviceMotion,
     public sharedService: SharedService,
-    private geofence: Geofence
-    // public Pedometer: Pedometer
+    private geofence: Geofence,
+    public Pedometer: Pedometer
   ) {
 
     geofence.initialize().then(
@@ -63,10 +65,18 @@ export class Tab1Page {
     
   }
 
-  // startPedo() {
-  //   this.Pedometer.isStepCountingAvailable()
-  //   .then((ava))
-  // }
+  startPedo() {
+    this.Pedometer.isDistanceAvailable()
+    .then((availalbe: true) => {
+      console.log(availalbe);
+    })
+    .catch((error: any) => console.log(error));
+
+    this.Pedometer.startPedometerUpdates()
+    .subscribe((data: Data) => {
+      console.log("이게 데이터", data);
+   });
+  }
 
   private addGeofence() {
     //options describing geofence
