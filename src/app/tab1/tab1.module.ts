@@ -7,7 +7,11 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { flatten } from '@angular/compiler';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Gyroscope } from '@ionic-native/gyroscope/ngx';
+import { DeviceMotion } from '@ionic-native/device-motion/ngx';
+import { Geofence } from '@ionic-native/geofence/ngx';
+import { Pedometer } from '@ionic-native/pedometer/ngx';
 @NgModule({
   imports: [
     IonicModule,
@@ -41,6 +45,13 @@ import { flatten } from '@angular/compiler';
     })
   ],
   declarations: [Tab1Page],
+  providers: [
+    Geolocation,
+    Gyroscope,
+    DeviceMotion,
+    Geofence,
+    Pedometer
+  ],
 
 })
 export class Tab1PageModule { }
