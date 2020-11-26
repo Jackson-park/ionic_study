@@ -6,6 +6,8 @@ import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device
 import { SharedService } from '../shared.service';
 import { Geofence } from '@ionic-native/geofence/ngx';
 import { IPedometerData, Pedometer } from '@ionic-native/pedometer/ngx';
+import { startOfDay } from '@fullcalendar/core';
+import { error } from 'console';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -60,11 +62,6 @@ export class Tab1Page {
 
   ngOnInit() {
     // this.addGeofence();
-
-    
-  }
-
-  startPedo() {
     this.Pedometer.isDistanceAvailable()
     .then((availalbe: true) => {
       console.log(availalbe);
@@ -78,8 +75,30 @@ export class Tab1Page {
       this.distance = data.distance;
 
    });
-   this.Pedometer.isStepCountingAvailable()
-   .then()
+    
+  }
+
+  
+  startPedo() {
+    this.Pedometer.isDistanceAvailable()
+    .then((availalbe: true) => {
+      console.log(availalbe);
+    })
+    .catch((error: any) => console.log(error));
+
+    this.Pedometer.startPedometerUpdates()
+    .subscribe((data: IPedometerData) => {
+      console.log("이게 데이터", data);
+      this.todayStep = data.numberOfSteps;
+      this.distance = data.distance;
+   });
+
+  }
+  stopPedo() {
+    this.Pedometer.stopPedometerUpdates()
+    .then((available: true) => {
+      console.log(available);
+    })
   }
 
   private addGeofence() {

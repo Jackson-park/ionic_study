@@ -54,7 +54,7 @@
           <ion-row>
             <ion-col col-4>{{(todayStep * 0.06).toFixed(1)}}Kcal</ion-col>
             <ion-col col-4>1h 56m</ion-col>
-            <ion-col col-4>{{distance}}km</ion-col>
+            <ion-col col-4>{{distance | number:'1.1-1'}}m</ion-col>
             <!-- <ion-col col-4 *ngIf="(todayStep * 0.7) < 1000">{{(todayStep * 0.7).toFixed(0)}}m</ion-col>
             <ion-col col-4 *ngIf="(todayStep * 0.7) >= 1000">{{((todayStep * 0.7) / 1000).toFixed(1)}}km</ion-col> -->
           </ion-row>
@@ -77,8 +77,6 @@
       
       </div>
   </div>
-
-  
 
   <!-- <ul>
     <li *ngFor="let obj of arr">
@@ -105,6 +103,10 @@
       <Button ion-button clear item-end (click)="showHistoryRoute(route.path)">View</Button>
     </ion-item>
   </ion-list> -->
+  <div>
+    <ion-button expand="block" color="secondary" (click)="startPedo()">Pedometer</ion-button>
+    <ion-button expand="block" color="secondary" (click)="stopPedo()">Pedometer_Stop</ion-button>
+  </div>
   <div>
     <ion-button expand="block" color="secondary" (click)="Gyroscope()">자이로센서콘솔</ion-button>
     <ion-item>
@@ -154,9 +156,6 @@
         <span>timestamp: {{motionTimestamp | number:'1.4-4'}}</span>
       </ion-list>
     </ion-item>
-  </div>
-  <div>
-    <ion-button expand="block" color="secondary" (click)="startPedo()">Pedometer</ion-button>
   </div>
   <div>
     <ion-grid>
