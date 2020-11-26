@@ -6,8 +6,6 @@ import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device
 import { SharedService } from '../shared.service';
 import { Geofence } from '@ionic-native/geofence/ngx';
 import { IPedometerData, Pedometer } from '@ionic-native/pedometer/ngx';
-import { startOfDay } from '@fullcalendar/core';
-import { error } from 'console';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -78,7 +76,7 @@ export class Tab1Page {
     
   }
 
-  
+
   startPedo() {
     this.Pedometer.isDistanceAvailable()
     .then((availalbe: true) => {
