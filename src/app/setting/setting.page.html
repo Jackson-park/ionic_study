@@ -7,21 +7,9 @@
 <ion-content fullscreen>
   <div>
     <ion-list>
-    <ion-item-divider>계정설정</ion-item-divider>
-      <ion-item>
-        <ion-label>asdf</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>asdf</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>asdf</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>asdf</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>asdf</ion-label>
+    <ion-item-divider>내 정보</ion-item-divider>
+      <ion-item button (click)="goProfile()">
+        <ion-label>프로필 설정</ion-label>
       </ion-item>
     </ion-list>
     <ion-item>계정 연결</ion-item>
@@ -37,7 +25,7 @@
     <ion-item-divider></ion-item-divider>
     <ion-item>평가하러 가기</ion-item>
     <ion-item>친구에게 공유하기</ion-item>
-    <ion-button color="danger" expand="block">로그아웃</ion-button>
+    <ion-button color="danger" expand="block" (click)="logout()">로그아웃</ion-button>
   </div>
 
 </ion-content>

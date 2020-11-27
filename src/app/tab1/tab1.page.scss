@@ -13,13 +13,19 @@
 .homebackground {
     text-align: center;
     // height: 80%;
-    padding: 1%;
+    padding: 5px;
     margin: 0%;
-    padding-bottom: 7%;
+    padding-bottom: 20px;
     color: white;
     border-radius: 0px 0px 30px 30px;
-    background-image: linear-gradient( 200deg, #ffcd00 11.1%, #28939c 81.3%);
+    // z-index: 1;
+    // position: relative;
+    background-image: linear-gradient( 200deg, #fecd1a 11.1%, #e44cf1 81.3%);
+    // background-image: url('../../assets/img/koreaImg.jpg');
+    background-size: cover;
+    // filter: blur(3px);
 }
+
 .homeRoot {
     text-align: center;
     margin: 0%;

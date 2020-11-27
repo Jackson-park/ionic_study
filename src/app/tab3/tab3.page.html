@@ -1,27 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title style="text-align: center;">
-      recode
+      통계
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-calendar [(ngModel)]="date" [options]="optionsRange" [type]="type" [format]="'YYYY-MM-DD'"
-      (click)="dateClick()">
+  <!-- <ion-card>
+    <ion-calendar [(ngModel)]="date" [options]="optionsRange" [type]="type" [format]="'YYYY-MM-DD'">
     </ion-calendar>
-  </ion-card>
-
-  <div>
-    <p>{{ date }}</p>
-  </div>
-
-  <div [ngSwitch]="date">
-    <ion-item>
-      <ion-col col-4><div>년</div></ion-col>
-      <ion-col col-4><div>월</div></ion-col>
-      <ion-col col-4><div>일</div></ion-col>
-    </ion-item>
-  </div>
+  </ion-card> -->
 </ion-content>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons mode="md" slot="start" style="position: absolute;">
+      <ion-back-button defaultHref="/tabs/setting"></ion-back-button>
+    </ion-buttons>
+    <ion-title>프로필 설정</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../assets/icon/favicon.png">
+      </ion-avatar>
+      <ion-label>박재성</ion-label>
+      <ion-icon name="accessibility-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-item-divider></ion-item-divider>
+  <ion-list>
+    <ion-item slot="start">
+      <ion-label>키</ion-label>
+      <ion-select (click)="heightSet()">
+        <ion-item-options>
+        <ion-select-option *ngFor="let h of height" [value]="h">{{h}}cm</ion-select-option>
+      </ion-item-options>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item slot="start">
+      <ion-label>몸무게</ion-label>
+      <ion-select (click)="weightSet()">
+        <ion-item-options>
+        <ion-select-option *ngFor="let w of weight" [value]="w">{{w}}kg</ion-select-option>
+      </ion-item-options>
+    </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item slot="start">
+      <ion-label>성별</ion-label>
+      <ion-select>
+        <ion-item-options>
+          <ion-select-option [value]="0">남</ion-select-option>
+          <ion-select-option [value]="1">여</ion-select-option>
+      </ion-item-options>
+    </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item slot="start">
+      <ion-label>생년월일</ion-label>
+      <ion-datetime [value]="1990-02-20" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item button slot="start">
+      <ion-label>이름 및 사진</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item button slot="start" (click)="logout()">
+      <ion-label>로그아웃</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item button slot="start">
+      <ion-label>탈퇴하기</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

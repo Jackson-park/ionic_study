@@ -10,23 +10,18 @@ import { CalendarComponentOptions } from 'ion2-calendar'
 export class Tab3Page {
 
 
-  dateRange: { from: Date; to: Date; };
-  date: number;
-  type: 'string';
-  optionsRange: CalendarComponentOptions = {
-    monthFormat: 'YYYY 년 MM 월 ',
-    color: 'secondary',
-    weekdays: ['일', '월', '화', '수', '목', '금', '토'],
-    // pickMode: 'range'
-  };
+  // dateRange: { from: Date; to: Date; };
+  // date: number;
+  // type: 'string';
+  // optionsRange: CalendarComponentOptions = {
+  //   monthFormat: 'YYYY 년 MM 월 ',
+  //   color: 'secondary',
+  //   weekdays: ['일', '월', '화', '수', '목', '금', '토'],
+  //   // pickMode: 'range'
+  // };
 
   constructor() {
 
-  }
-
-  dateClick() {
-    console.log(this.date);
-    console.log(this.dateRange);
   }
 
 }
