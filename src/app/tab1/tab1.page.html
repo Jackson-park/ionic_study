@@ -39,14 +39,6 @@
     </ion-grid>
   </div>
     <div class="homeRoot">
-      <!-- <p>오늘의 걸음</p> -->
-        <circle-progress
-        [percent]="todayStep / 100"
-        title="{{todayStep | number}}"
-        subtitle="걸음"
-        titleColor="white"
-        subtitleColor="white"></circle-progress>
-      <p>목표: 10000</p>
       <ion-grid>
         <ion-row>
           <ion-col col-4>Kcal</ion-col>
@@ -56,12 +48,20 @@
         <ion-row>
           <ion-col col-4>{{(todayStep * 0.06).toFixed(1)}}Kcal</ion-col>
           <ion-col col-4>1h 56m</ion-col>
-          <!-- <ion-col col-4>{{distance | number:'1.1-1'}}m</ion-col> -->
           <ion-col col-4>{{distance >= 1000? (distance/1000 | number) + 'km' : (distance | number:'1.1-1') + 'm'}}</ion-col>
           <!-- <ion-col col-4 *ngIf="(todayStep * 0.7) < 1000">{{(todayStep * 0.7).toFixed(0)}}m</ion-col>
           <ion-col col-4 *ngIf="(todayStep * 0.7) >= 1000">{{((todayStep * 0.7) / 1000).toFixed(1)}}km</ion-col> -->
         </ion-row>
       </ion-grid>
+      <circle-progress
+        [percent]="todayStep / 100"
+        title="{{todayStep | number}}"
+        subtitle="걸음"
+        titleColor="white"
+        subtitleColor="white"></circle-progress>
+      <p>
+        목표: 10000
+      </p>
       <ion-range min="0" max="10000" color="secondary" [(ngModel)]="todayStep" color="warning">
       </ion-range>
       <!-- <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 10000? '오늘 걸음 끝' :'걸음추가'}}</ion-button> -->

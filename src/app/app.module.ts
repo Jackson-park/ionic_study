@@ -14,6 +14,7 @@ import { Gyroscope } from '@ionic-native/gyroscope/ngx';
 import { DeviceMotion } from '@ionic-native/device-motion/ngx';
 import { Geofence } from '@ionic-native/geofence/ngx';
 import { Pedometer } from '@ionic-native/pedometer/ngx';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,7 +28,8 @@ import { Pedometer } from '@ionic-native/pedometer/ngx';
     Gyroscope,
     DeviceMotion,
     Geofence,
-    Pedometer
+    Pedometer,
+    BackgroundMode
   ],
   bootstrap: [AppComponent]
 })
