@@ -138,7 +138,9 @@ export class Tab1Page {
     // Stop watch
     // subscription.unsubscribe();
   }
-
+  stopMotion() {
+    this.deviceMotion.watchAcceleration().subscribe().unsubscribe();
+  }
   Gyroscope() {
     let options: GyroscopeOptions = {
       frequency: 1000
@@ -147,10 +149,6 @@ export class Tab1Page {
     this.gyroscope.getCurrent(options)
       .then((orientation: GyroscopeOrientation) => {
         console.log(orientation);
-        // this.xOrient = orientation.x;
-        // this.yOrient = orientation.y;
-        // this.zOrient = orientation.z;
-        // this.timestamp = orientation.timestamp;
       })
       .catch()
 
@@ -163,6 +161,9 @@ export class Tab1Page {
         this.zOrient = orientation.z;
         this.timestamp = orientation.timestamp;
       });
+  }
+  stopGyroscope() {
+    this.gyroscope.watch().subscribe().unsubscribe();
   }
   go() {
     this.router.navigateByUrl('/test');
@@ -179,6 +180,7 @@ export class Tab1Page {
     this.state = true;
     this.sharedService.presentAlert("알림", "적립되었습니다.");
   }
+
   whereIam() {
     this.geolocation.getCurrentPosition({
       timeout: 10000,
@@ -190,6 +192,5 @@ export class Tab1Page {
       console.log(e);
     });
   }
-
-
+  
 }

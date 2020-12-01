@@ -27,7 +27,7 @@
 </ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <div class="homebackground">
+  <div class="homebackground" style="margin-top: 20px;">
     <div>
     <ion-grid>
       <ion-row style="position: relative;">
@@ -62,8 +62,8 @@
       <p>
         목표: 10000
       </p>
-      <ion-range min="0" max="10000" color="secondary" [(ngModel)]="todayStep" color="warning">
-      </ion-range>
+      <!-- <ion-range min="0" max="10000" color="secondary" [(ngModel)]="todayStep" color="warning">
+      </ion-range> -->
       <!-- <ion-button expand="block" color="secondary" (click)="stepAdd()">{{todayStep >= 10000? '오늘 걸음 끝' :'걸음추가'}}</ion-button> -->
       <ion-button expand="block" color="secondary" (click)="pointAdd()" *ngIf="todayStep >= 10000">{{state? '적립되었습니다' :'SDmall 500포인트 적립 받기'}}</ion-button>
       
@@ -95,12 +95,13 @@
       <Button ion-button clear item-end (click)="showHistoryRoute(route.path)">View</Button>
     </ion-item>
   </ion-list> -->
-  <div>
-    <ion-button expand="block" color="secondary" (click)="startPedo()">Pedometer</ion-button>
-    <ion-button expand="block" color="secondary" (click)="stopPedo()">Pedometer_Stop</ion-button>
+  <div style="text-align: center;">
+    <ion-button color="success" style="width: 45%;" (click)="startPedo()">Pedometer_Start</ion-button>
+    <ion-button color="danger" style="width: 45%;" (click)="stopPedo()">Pedometer_Stop</ion-button>
   </div>
-  <div>
-    <ion-button expand="block" color="secondary" (click)="Gyroscope()">자이로센서콘솔</ion-button>
+  <div style="text-align: center;">
+    <ion-button color="success" style="width: 45%;" (click)="Gyroscope()">자이로센서 시작</ion-button>
+    <ion-button color="danger" style="width: 45%;" (click)="stopGyroscope()">자이로센서 정지</ion-button>
     <ion-item>
       <ion-list>
         <span>X축: </span>
@@ -126,8 +127,9 @@
       </ion-list>
     </ion-item>
   </div>
-  <div>
-    <ion-button expand="block" color="secondary" (click)="Motion()">모션</ion-button>
+  <div style="text-align: center;">
+    <ion-button color="success" style="width: 45%;" (click)="Motion()">모션</ion-button>
+    <ion-button color="danger" style="width: 45%;" (click)="stopMotion()">모션 중지</ion-button>
     <ion-item>
       <ion-list>
         <span>X축: {{motionX | number:'1.4-4'}}</span>

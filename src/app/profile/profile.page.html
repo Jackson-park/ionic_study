@@ -21,7 +21,7 @@
   <ion-list>
     <ion-item slot="start">
       <ion-label>키</ion-label>
-      <ion-select (click)="heightSet()">
+      <ion-select (click)="heightSet()" [(ngModel)]="user.height">
         <ion-item-options>
         <ion-select-option *ngFor="let h of height" [value]="h">{{h}}cm</ion-select-option>
       </ion-item-options>
@@ -31,7 +31,7 @@
   <ion-list>
     <ion-item slot="start">
       <ion-label>몸무게</ion-label>
-      <ion-select (click)="weightSet()">
+      <ion-select (click)="weightSet()" [(ngModel)]="user.weight">
         <ion-item-options>
         <ion-select-option *ngFor="let w of weight" [value]="w">{{w}}kg</ion-select-option>
       </ion-item-options>
@@ -41,10 +41,10 @@
   <ion-list>
     <ion-item slot="start">
       <ion-label>성별</ion-label>
-      <ion-select>
+      <ion-select [(ngModel)]="user.sex">
         <ion-item-options>
-          <ion-select-option [value]="0">남</ion-select-option>
-          <ion-select-option [value]="1">여</ion-select-option>
+          <ion-select-option [value]="1">남</ion-select-option>
+          <ion-select-option [value]="0">여</ion-select-option>
       </ion-item-options>
     </ion-select>
     </ion-item>
@@ -70,4 +70,10 @@
       <ion-label>탈퇴하기</ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-item>
+    <ion-label>{{user.height}}cm</ion-label>
+    <ion-label>{{user.weight}}kg</ion-label>
+    <ion-label>{{user.sex? '남' : '여'}}</ion-label>
+  </ion-item>
 </ion-content>

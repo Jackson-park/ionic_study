@@ -12,6 +12,12 @@ export class ProfilePage implements OnInit {
   body: any = [];
   height: any = [];
   weight: any = [];
+  user: any = {
+    weight: 0,
+    height: 0,
+    sex: Boolean,
+    age: 0
+  }
   constructor(
     public sharedService: SharedService,
     private router: Router,
@@ -30,7 +36,7 @@ export class ProfilePage implements OnInit {
   }
 
   weightSet() {
-    for (let i = 40; i <= 140; i++) {
+    for (let i = 30; i <= 140; i++) {
           this.weight.push(i);
         }
   }
