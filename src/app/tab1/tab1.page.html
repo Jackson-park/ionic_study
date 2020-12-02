@@ -98,6 +98,18 @@
   <div style="text-align: center;">
     <ion-button color="success" style="width: 45%;" (click)="startPedo()">Pedometer_Start</ion-button>
     <ion-button color="danger" style="width: 45%;" (click)="stopPedo()">Pedometer_Stop</ion-button>
+    <ion-item>
+      <ion-list>
+        <span>시작시간: </span>
+        {{pedostartDate}}
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <span>종료시간: </span>
+        {{pedoendDate}}
+      </ion-list>
+    </ion-item>
   </div>
   <div style="text-align: center;">
     <ion-button color="success" style="width: 45%;" (click)="Gyroscope()">자이로센서 시작</ion-button>

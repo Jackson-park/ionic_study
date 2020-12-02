@@ -55,6 +55,7 @@ export class ProfilePage implements OnInit {
           }
         }, {
           text: '확인',
+          cssClass: 'danger',
           handler: () => {
             console.log('Confirm Ok');
             this.router.navigateByUrl('/tabs/tab1');
@@ -63,6 +64,32 @@ export class ProfilePage implements OnInit {
       ]
     });
     await alert.present();
-    // this.router.navigateByUrl('/tabs/tab1');
+  }
+
+  //가입탈퇴
+  async withdraw() {
+    // this.sharedService.presentAlert("로그아웃", "로그아웃되었습니다.");
+    const alert = await this.alertController.create({
+      header: '탈퇴하기',
+      message: '탈퇴하시면 스마일워크의 아이디와 모든 정보는 삭제됩니다.',
+      buttons: [
+        {
+          text: '취소',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: '탈퇴하기',
+          cssClass: 'danger',
+          handler: () => {
+            console.log('Confirm Ok');
+            this.router.navigateByUrl('/tabs/tab1');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 }

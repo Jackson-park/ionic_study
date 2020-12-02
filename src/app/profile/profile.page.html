@@ -3,7 +3,7 @@
     <ion-buttons mode="md" slot="start" style="position: absolute;">
       <ion-back-button defaultHref="/tabs/setting"></ion-back-button>
     </ion-buttons>
-    <ion-title>프로필 설정</ion-title>
+    <ion-title style="text-align: center;">프로필 설정</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -66,7 +66,7 @@
     </ion-item>
   </ion-list>
   <ion-list>
-    <ion-item button slot="start">
+    <ion-item button slot="start" (click)="withdraw()">
       <ion-label>탈퇴하기</ion-label>
     </ion-item>
   </ion-list>

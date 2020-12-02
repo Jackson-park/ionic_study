@@ -30,6 +30,8 @@ export class Tab1Page {
   motionZ: number;
   motionTimestamp: number;
   pedoStep: number;
+  pedostartDate: number;
+  pedoendDate: number;
   constructor(
     private router: Router,
     public geolocation: Geolocation,
@@ -76,6 +78,8 @@ export class Tab1Page {
       console.log("이게 데이터", data);
       this.todayStep = data.numberOfSteps;
       this.distance = data.distance;
+      this.pedostartDate = data.startDate;
+      this.pedoendDate = data.endDate;
    });
 
   }
