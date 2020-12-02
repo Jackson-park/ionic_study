@@ -78,8 +78,8 @@ export class Tab1Page {
       console.log("이게 데이터", data);
       this.todayStep = data.numberOfSteps;
       this.distance = data.distance;
-      this.pedostartDate = new Date(data.startDate.toFixed(0));
-      this.pedoendDate = new Date(data.endDate.toFixed(0));
+      this.pedostartDate = new Date(data.startDate);
+      this.pedoendDate = new Date(data.endDate);
       
       
    });
