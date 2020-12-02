@@ -30,8 +30,8 @@ export class Tab1Page {
   motionZ: number;
   motionTimestamp: number;
   pedoStep: number;
-  pedostartDate: number;
-  pedoendDate: number;
+  pedostartDate: Data;
+  pedoendDate: Date;
   constructor(
     private router: Router,
     public geolocation: Geolocation,
