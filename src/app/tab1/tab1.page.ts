@@ -16,8 +16,8 @@ export class Tab1Page {
   state: boolean = false;
   
   pedoStep: number;
-  pedostartDate: number;
-  pedoendDate: number;
+  pedostartDate: any;
+  pedoendDate: any;
   constructor(
     private router: Router,
     
@@ -57,8 +57,8 @@ export class Tab1Page {
       console.log("걸음 데이터", data);
       this.todayStep = data.numberOfSteps;
       this.distance = data.distance;
-      this.pedostartDate = data.startDate;
-      this.pedoendDate = data.endDate;
+      this.pedostartDate = data.startDate.toFixed(0);
+      this.pedoendDate = data.endDate.toFixed(0);
       
    });
 
