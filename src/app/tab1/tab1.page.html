@@ -54,6 +54,7 @@
           <ion-col col-4 *ngIf="(todayStep * 0.7) >= 1000">{{((todayStep * 0.7) / 1000).toFixed(1)}}km</ion-col> -->
         </ion-row>
       </ion-grid>
+      <br />
       <circle-progress
         [percent]="todayStep / 100"
         title="{{todayStep | number}}"
@@ -71,6 +72,8 @@
       <div style="text-align: center;">
         <ion-button color="success" style="width: 45%;" (click)="startPedo()">Pedometer_Start</ion-button>
         <ion-button color="danger" style="width: 45%;" (click)="stopPedo()">Pedometer_Stop</ion-button>
+      </div>
+      <div>
         <ion-item>
           <ion-list>
             <span>시작시간: </span>

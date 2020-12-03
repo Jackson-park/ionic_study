@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
 import { IPedometerData, Pedometer } from '@ionic-native/pedometer/ngx';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -20,9 +21,7 @@ export class Tab1Page {
   pedoendDate: any;
   constructor(
     private router: Router,
-    
     public sharedService: SharedService,
-    
     public Pedometer: Pedometer
   ) {
 
@@ -57,8 +56,8 @@ export class Tab1Page {
       console.log("걸음 데이터", data);
       this.todayStep = data.numberOfSteps;
       this.distance = data.distance;
-      this.pedostartDate = data.startDate.toFixed(0);
-      this.pedoendDate = data.endDate.toFixed(0);
+      this.pedostartDate = data.startDate;
+      this.pedoendDate = data.endDate;
       
    });
 
@@ -85,5 +84,4 @@ export class Tab1Page {
     this.state = true;
     this.sharedService.presentAlert("알림", "적립되었습니다.");
   }
-
 }
