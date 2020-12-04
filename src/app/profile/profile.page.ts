@@ -1,7 +1,8 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -21,8 +22,10 @@ export class ProfilePage implements OnInit {
   constructor(
     public sharedService: SharedService,
     private router: Router,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private nav: NavController
   ) {
+    
   }
 
   ngOnInit() {
@@ -40,8 +43,8 @@ export class ProfilePage implements OnInit {
           this.weight.push(i);
         }
   }
+
   async logout() {
-    // this.sharedService.presentAlert("로그아웃", "로그아웃되었습니다.");
     const alert = await this.alertController.create({
       header: '로그아웃',
       message: '로그아웃을 하시겠습니까?',
@@ -58,7 +61,7 @@ export class ProfilePage implements OnInit {
           cssClass: 'danger',
           handler: () => {
             console.log('Confirm Ok');
-            this.router.navigateByUrl('/tabs/tab1');
+            this.nav.navigateRoot('/tabs/tab1');
           }
         }
       ]
@@ -68,7 +71,6 @@ export class ProfilePage implements OnInit {
 
   //가입탈퇴
   async withdraw() {
-    // this.sharedService.presentAlert("로그아웃", "로그아웃되었습니다.");
     const alert = await this.alertController.create({
       header: '탈퇴하기',
       message: '탈퇴하시면 스마일워크의 아이디와 모든 정보는 삭제됩니다.',
@@ -85,7 +87,7 @@ export class ProfilePage implements OnInit {
           cssClass: 'danger',
           handler: () => {
             console.log('Confirm Ok');
-            this.router.navigateByUrl('/tabs/tab1');
+            this.nav.navigateRoot('/tabs/tab1');
           }
         }
       ]

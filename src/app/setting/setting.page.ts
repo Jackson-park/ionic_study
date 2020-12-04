@@ -22,7 +22,6 @@ export class SettingPage implements OnInit {
     this.ver = '0.1.1';
   }
   logout() {
-    // window.location.href = "/tabs/tab1";
     this.nav.navigateRoot('/tabs/tab1');
   }
   notice() {
