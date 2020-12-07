@@ -26,6 +26,7 @@ export class Tab1Page {
     public Pedometer: Pedometer
   ) {
     // this.loadList();
+    this.stepTime = (this.pedoendDate - this.pedostartDate)/60000;
   }
 
   // loadList() {
@@ -57,7 +58,6 @@ export class Tab1Page {
       this.pedostartDate = data.startDate;
       this.pedoendDate = data.endDate;
       // this.stepTime += (data.endDate - data.startDate)/60000;
-      this.stepTime += (data.endDate/1000 - data.startDate/1000)/60
 
    });
 
