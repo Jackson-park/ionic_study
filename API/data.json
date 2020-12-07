@@ -33,28 +33,12 @@
       "id": 5
     },
     {
-      "user_id": "black",
+      "user_id": "qkrwotjd513",
       "user_password": "0000",
       "name": "박재성",
-      "age": 24,
+      "age": 25,
       "phone": 1086970513,
-      "id": 6
-    },
-    {
-      "user_id": "black",
-      "user_password": "0000",
-      "name": "박재성",
-      "age": 23,
-      "phone": 1086970513,
-      "id": 7
-    },
-    {
-      "user_id": "black",
-      "user_password": "0000",
-      "name": "박재성",
-      "age": 23,
-      "phone": 1086970513,
-      "id": 8
+      "id": 9
     }
   ]
 }

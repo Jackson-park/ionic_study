@@ -19,13 +19,12 @@ export class Tab1Page {
   pedoStep: number;
   pedostartDate: any;
   pedoendDate: any;
+  stepTime: number = 0;
   constructor(
     private router: Router,
     public sharedService: SharedService,
     public Pedometer: Pedometer
   ) {
-
-    
     // this.loadList();
   }
 
@@ -43,7 +42,6 @@ export class Tab1Page {
     // this.addGeofence();
   }
 
-
   startPedo() {
     this.Pedometer.isDistanceAvailable()
     .then((availalbe: true) => {
@@ -58,7 +56,7 @@ export class Tab1Page {
       this.distance = data.distance;
       this.pedostartDate = data.startDate;
       this.pedoendDate = data.endDate;
-      
+      this.stepTime += (data.startDate - data.endDate)/60000;
    });
 
   }
