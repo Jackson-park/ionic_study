@@ -52,13 +52,12 @@ export class Tab1Page {
     this.Pedometer.startPedometerUpdates()
     .subscribe((data: IPedometerData) => {
       console.log("걸음 데이터", data);
-      this.todayStep = data.numberOfSteps;
-      this.distance = data.distance;
+      this.todayStep += data.numberOfSteps;
+      this.distance += data.distance;
       this.pedostartDate = data.startDate;
       this.pedoendDate = data.endDate;
-      if(data.numberOfSteps) {
-        this.stepTime += (data.endDate - data.startDate)/600000;
-      }
+      this.stepTime += (data.endDate - data.startDate)/600000;
+      this.startPedo();
 
    });
 
