@@ -56,7 +56,7 @@ export class Tab1Page {
       this.distance = data.distance;
       this.pedostartDate = data.startDate;
       this.pedoendDate = data.endDate;
-      this.stepTime += (data.startDate - data.endDate)/60000;
+      this.stepTime += (data.endDate - data.startDate)/60000;
    });
 
   }
