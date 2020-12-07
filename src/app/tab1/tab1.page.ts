@@ -57,7 +57,7 @@ export class Tab1Page {
       this.pedostartDate = data.startDate;
       this.pedoendDate = data.endDate;
       if(data.numberOfSteps) {
-        this.stepTime += (data.endDate - data.startDate)/60000;
+        this.stepTime += (data.endDate - data.startDate)/600000;
       }
 
    });
